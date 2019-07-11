@@ -1,0 +1,35 @@
+﻿@charset "utf-8";
+html{height:100%;}
+.login_bg_box{position:relative;overflow:hidden;height:100%;width:100%;
+  .login_banner_img{background-image:url("../images/bg_big.png");margin:0 auto;height:100%;background-size: cover;background-position: center;background-repeat: no-repeat;}
+}
+.login_header{position:absolute;top:0;left:0;
+  .logo_img_box{display:block;
+    img{width:160px;height:42px;margin:40px 0 0 100px;}
+  }
+}
+.login_footer{width:100%;text-align:center;position:fixed;bottom:60px;left:0;}
+
+
+//登录页面登录面板
+.login_panel_bg{position:absolute;left:0;top:75px;width:100%;height:400px;
+    .login_panel{width:350px;background:#fff;position: absolute;right:100px;top:28px;border-radius:8px;
+        .panel_top{padding:20px 24px 25px;
+            h3{font-size: 16px;color:#000;margin-bottom:20px;text-align:center;}
+            .login_form{
+              li{margin-bottom:20px;overflow:hidden;}
+              .login_input{box-sizing:border-box;height:40px;color:#999;line-height:40px;*height:38px;*line-height:38px;float:left;padding:0 10px;font-size: 14px;border-radius:5px;background:#fafafa;color:#000;
+              }
+              .login_btn{width:100%;height:43px;background:#1871e9;color:#fff;font-size: 16px;border-radius: 3px;margin:8px 0 2px 0;
+                -webkit-transition: background .1s;
+                -moz-transition: background .1s;
+                -ms-transition: background .1s;
+                -o-transition: background .1s;
+                transition: background .1s;
+                  &:hover{background:#1668d6;}
+              }
+              .check_icon{width:35%;height: 40px;float:left;margin-left:5%;}
+            }
+        }
+    }
+}

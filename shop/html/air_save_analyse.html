@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>机票节省分析</title>
+    <link type="text/css" rel="stylesheet" href="../css/global.css">
+    <link type="text/css" rel="stylesheet" href="../css/style.css">
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/face_common.js"></script>
+</head>
+<body style="overflow-y:auto">
+    <div class="global_div o_hide">
+        <h2>机票节省分析(万元)</h2>
+        <div class="clearfloat">
+            <div class="bk_left w_660 p_l_20">
+                <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+                <div id="airSaveMain" class="w_660" style="height:500px;"></div>
+            </div>
+            <div class="w_300 bk_right m_r_20">
+                <table class="table1 t_center">
+                    <thead>
+                        <tr>
+                            <th class="w_40">部门</th>
+                            <th class="w_40">张数</th>
+                        </tr>
+                    </thead>
+                    <tbody> 
+                        <tr>
+                            <td>部门1</td>
+                            <td>123456</td>
+                        </tr>
+                        <tr>
+                            <td>部门1</td>
+                            <td>123456</td>
+                        </tr>
+                        <tr>
+                            <td>部门1</td>
+                            <td>123456</td>
+                        </tr>
+                        <tr>
+                            <td>部门1</td>
+                            <td>123456</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- ECharts单文件引入 -->
+    <script src="../js/echarts-all.js"></script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts图表
+        var myChartairSave = echarts.init(document.getElementById('airSaveMain')); 
+        
+        var option = {
+                        legend: {
+                            data:['国内节省  (万元)'],
+                            x:'right',
+                            y:'top'
+                        },
+                        xAxis : [
+                            {
+                                type : 'category',
+                                axisLine: {
+                                    lineStyle:{
+                                        color:'#00cccc'
+                                    }
+                                },
+                                data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月']
+                            }
+                        ],
+                        yAxis : [
+                            {
+                                type : 'value',
+                                axisLine: {
+                                    lineStyle:{
+                                        color:'#00cccc'
+                                    }
+                                }
+                            }
+                        ],
+                        series : [
+                            {
+                                name:'国内节省  (万元)',
+                                type:'line',
+                                stack: '总量',
+                                symbol:'emptyCircle',
+                                symbolSize:4,
+                                itemStyle:{
+                                    normal: {
+                                        color:'#00cccc',
+                                        lineStyle:{
+                                            color:'#00cccc'
+                                        }
+                                    },
+                                    emphasis : {
+                                        label : {show: true}
+                                    }
+                                },
+                                markPoint : {
+                                    data : [
+                                        {type : 'max', name: '最大值'}
+                                    ]
+                                },
+                                data:[12, 13, 11, 14, 30, 20, 21,42,24,34]
+                            }
+                        ]
+                    };
+                    
+        // 为echarts对象加载数据 
+        myChartairSave.setOption(option); 
+    </script>
+</body>

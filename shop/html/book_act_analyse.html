@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>预订及出行行为分析</title>
+    <link type="text/css" rel="stylesheet" href="../css/global.css">
+    <link type="text/css" rel="stylesheet" href="../css/style.css">
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/face_common.js"></script>
+</head>
+<body style="overflow-y:auto">
+    <div class="global_div o_hide p_l_20 p_r_20">
+        <h2>提前预订天数情况</h2>
+        <div class="day_list">
+            <ul>
+                <li><span>3天</span><span>12%</span></li>
+                <li><span>3天</span><span>12%</span></li>
+                <li><span>3天</span><span>12%</span></li>
+                <li><span>3天</span><span>12%</span></li>
+                <li><span>3天</span><span>12%</span></li>
+                <li><span>3天</span><span>12%</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="global_div o_hide">
+        <h2>国内机票舱位销售分布</h2>
+        <div class="b100 p_l_20 p_r_20 box">
+            <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+            <div id="bookActMain1" class="b100" style="height:400px;"></div>
+            <h2 style="padding-left:0;">国内机票舱位销售分布</h2>
+            <div id="bookActMain2" class="b100" style="height:400px;"></div>
+            <table class="table2 no_border t_center">
+                <thead>
+                    <tr>
+                        <th>国内舱位代码</th>
+                        <th>销售额(万元)</th>
+                        <th>国际舱位代码</th>
+                        <th>销售额(万元)</th>
+                    </tr>
+                </thead>
+                <tbody> 
+                    <tr>
+                        <td>C</td>
+                        <td>123456</td>
+                        <td>C</td>
+                        <td>22222</td>
+                    </tr>
+                    <tr>
+                        <td>D</td>
+                        <td>123456</td>
+                        <td>D</td>
+                        <td>22222</td>
+                    </tr>
+                    <tr>
+                        <td>P</td>
+                        <td>123456</td>
+                        <td>P</td>
+                        <td>5555</td>
+                    </tr>
+                    <tr>
+                        <td>I</td>
+                        <td>123456</td>
+                        <td>I</td>
+                        <td>5555</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="global_div o_hide">
+        <h2>TOP10航线客票销售分析</h2>
+        <div class="b100 p_l_20 p_r_20 box">
+            <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+            <div id="bookActMain3" class="b100" style="height:400px;"></div>
+        </div>
+    </div>
+    <div class="global_div o_hide">
+        <h2>国内国际机票销售分析</h2>
+        <div class="b100 p_l_20 p_r_20 box">
+            <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+            <div id="bookActMain4" class="b100" style="height:400px;"></div>
+        </div>
+    </div>
+    
+    
+    <!-- ECharts单文件引入 -->
+    <script src="../js/echarts-all.js"></script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts图表
+        var myChartBookAct1 = echarts.init(document.getElementById('bookActMain1')); 
+        var myChartBookAct2 = echarts.init(document.getElementById('bookActMain2')); 
+        var myChartBookAct3 = echarts.init(document.getElementById('bookActMain3')); 
+        var myChartBookAct4 = echarts.init(document.getElementById('bookActMain4')); 
+        
+        var option1 = {
+                        legend: {
+                            data:['销售额  (万元)'],
+                            x:'right',
+                            y:'top'
+                        },
+                        xAxis : [
+                            {
+                                type : 'category',
+                                axisLine: {
+                                    lineStyle:{
+                                        color:'#00cccc'
+                                    }
+                                },
+                                data : ['C','D','P','I','W','R','Y','B','M','H','K','L','Q','G','V','U','Z','S','T','J','E']
+                            }
+                        ],
+                        yAxis : [
+                            {
+                                type : 'value',
+                                axisLine: {
+                                    lineStyle:{
+                                        color:'#00cccc'
+                                    }
+                                }
+                            }
+                        ],
+                        series : [
+                            {
+                                name:'销售额  (万元)',
+                                type:'line',
+                                stack: '总量',
+                                symbol:'emptyCircle',
+                                symbolSize:4,
+                                itemStyle:{
+                                    normal: {
+                                        color:'#00cccc',
+                                        lineStyle:{
+                                            color:'#00cccc'
+                                        }
+                                    },
+                                    emphasis : {
+                                        label : {show: true}
+                                    }
+                                },
+                                markPoint : {
+                                    data : [
+                                        {type : 'max', name: '最大值'}
+                                    ]
+                                },
+                                data:[1200, 1300, 1100, 1400, 3000, 2000, 2100,4200,2400,3400,3400,3400,3400,3400,3400,3400,3400,3400]
+                            }
+                        ]
+                    };
+                    
+        var option2 = {
+                        legend: {
+                            data:['销售额  (万元)'],
+                            x:'right',
+                            y:'top'
+                        },
+                        xAxis : [
+                            {
+                                type : 'category',
+                                axisLine: {
+                                    lineStyle:{
+                                        color:'#7381ff'
+                                    }
+                                },
+                                data : ['C','D','P','I','W','R','Y','B','M','H','K','L','Q','G','V','U','Z','S','T','J','E']
+                            }
+                        ],
+                        yAxis : [
+                            {
+                                type : 'value',
+                                axisLine: {
+                                    lineStyle:{
+                                        color:'#7381ff'
+                                    }
+                                }
+                            }
+                        ],
+                        series : [
+                            {
+                                name:'销售额  (万元)',
+                                type:'line',
+                                stack: '总量',
+                                symbol:'emptyCircle',
+                                symbolSize:4,
+                                itemStyle:{
+                                    normal: {
+                                        color:'#7381ff',
+                                        lineStyle:{
+                                            color:'#7381ff'
+                                        }
+                                    },
+                                    emphasis : {
+                                        label : {show: true}
+                                    }
+                                },
+                                markPoint : {
+                                    data : [
+                                        {type : 'max', name: '最大值'}
+                                    ]
+                                },
+                                data:[1200, 1300, 1100, 1400, 3000, 2000, 2100,4200,2400,3400,3400,3400,3400,3400,3400,3400,3400,3400]
+                            }
+                        ]
+                    }; 
+        var option3 = {
+            legend: {
+                orient : 'horizontal',
+                x : 'right',
+                y : 'bottom',
+                data:['直接访问','邮件营销','联盟广告','视频广告','搜索引擎','搜索引擎2','搜索引擎3','搜索引擎4']
+            },
+            calculable : true,
+            series : [
+                {
+                    name:'访问来源',
+                    type:'pie',
+                    center: ['30%','45%'],
+                    radius : ['40%', '60%'],
+                    itemStyle : {
+                        normal : {
+                            label : {
+                                show : true,
+                                formatter:'{d}%'
+                            },
+                            labelLine : {
+                                show : true
+                            }
+                        }
+                    },  
+                    data:[
+                        {value:335, name:'直接访问'},
+                        {value:310, name:'邮件营销'},
+                        {value:234, name:'联盟广告'},
+                        {value:135, name:'视频广告'},
+                        {value:1548, name:'搜索引擎'},
+                        {value:1548, name:'搜索引擎2'},
+                        {value:1548, name:'搜索引擎3'},
+                        {value:1548, name:'搜索引擎4'}
+                    ]
+                }
+            ]
+        };  
+        var option4 = {
+                legend: {
+                    data:['国内机票', '国际机票'],
+                    x : 'right',
+                    y : 'top',
+                },
+                yAxis : [
+                    {
+                        type : 'value'
+                    }
+                ],
+                xAxis : [
+                    {
+                        type : 'category',
+                        data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月']
+                    }
+                ],
+                series : [
+                    {
+                        name:'国内机票',
+                        type:'bar',
+                        stack: '总量',
+                        itemStyle : { 
+                            normal: {
+                                color:'#199aff',
+                                barBorderRadius:6,
+                                label : {
+                                    show: true, 
+                                    position: 'insideTop'
+                                }
+                            }
+                        },
+                        barWidth:30,
+                        data:[320, 302, 301, 334, 390, 330, 320, 320, 320, 320]
+                    },
+                    {
+                        name:'国际机票',
+                        type:'bar',
+                        stack: '总量',
+                        itemStyle : { 
+                            normal: {
+                                color:'#ffa800',
+                                barBorderRadius:6,
+                                label : {
+                                    show: true, 
+                                    position: 'insideTop'
+                                }
+                            }
+                        },
+                        barWidth:30,
+                        data:[120, 132, 101, 134, 90, 230, 210, 320, 320, 320]
+                    }
+                ]
+            };
+                                                    
+        // 为echarts对象加载数据 
+        myChartBookAct1.setOption(option1); 
+        myChartBookAct2.setOption(option2); 
+        myChartBookAct3.setOption(option3); 
+        myChartBookAct4.setOption(option4); 
+    </script>
+</body>

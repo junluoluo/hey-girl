@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>部门分析</title>
+    <link type="text/css" rel="stylesheet" href="../css/global.css">
+    <link type="text/css" rel="stylesheet" href="../css/style.css">
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/face_common.js"></script>
+</head>
+<body style="overflow-y:auto">
+    <div class="global_div o_hide">
+        <h2>前五部门消费分析</h2>
+        <div class="clearfloat">
+            <div class="bk_left w_400 p_l_20">
+                <div class="b_radio">
+                    <label class="m_r_40">
+                        <i></i>
+                        <span>全部</span>
+                        <input type="hidden">
+                    </label>
+                    <label class="m_r_40">
+                        <i class="checked"></i>
+                        <span>国内</span>
+                        <input type="hidden">
+                    </label>
+                    <label class="m_r_40">
+                        <i></i>
+                        <span>国际</span>
+                        <input type="hidden">
+                    </label>
+                </div>
+                <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+                <div id="departmentMain" class="w_400" style="height:400px;"></div>
+            </div>
+            <div class="w_600 bk_right m_r_20">
+                <table class="table1 t_center">
+                    <thead>
+                        <tr>
+                            <th class="w_40">部门</th>
+                            <th class="w_40">张数</th>
+                            <th class="w_40">张数占比</th>
+                            <th class="w_40">金额(万元)</th>
+                            <th class="w_40">金额占比</th>
+                            <th class="w_40">节省(万元)</th>
+                            <th class="w_40">平均节省率</th>
+                        </tr>
+                    </thead>
+                    <tbody> 
+                        <tr>
+                            <td>部门1</td>
+                            <td>123456</td>
+                            <td>10%</td>
+                            <td>44</td>
+                            <td>34%</td>
+                            <td>10</td>
+                            <td>3%</td>
+                        </tr>
+                        <tr>
+                            <td>部门1</td>
+                            <td>123456</td>
+                            <td>10%</td>
+                            <td>44</td>
+                            <td>34%</td>
+                            <td>10</td>
+                            <td>3%</td>
+                        </tr>
+                        <tr>
+                            <td>部门1</td>
+                            <td>123456</td>
+                            <td>10%</td>
+                            <td>44</td>
+                            <td>34%</td>
+                            <td>10</td>
+                            <td>3%</td>
+                        </tr>
+                        <tr>
+                            <td>部门1</td>
+                            <td>123456</td>
+                            <td>10%</td>
+                            <td>44</td>
+                            <td>34%</td>
+                            <td>10</td>
+                            <td>3%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+   
+    <!-- ECharts单文件引入 -->
+    <script src="../js/echarts-all.js"></script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts图表
+        var myChartDepartment = echarts.init(document.getElementById('departmentMain')); 
+        
+        var option = {
+            legend: {
+                orient : 'horizontal',
+                x : 'center',
+                y : 'bottom',
+                data:['直接访问','邮件营销','联盟广告','视频广告','搜索引擎','搜索引擎2','搜索引擎3','搜索引擎4']
+            },
+            calculable : true,
+            series : [
+                {
+                    name:'访问来源',
+                    type:'pie',
+                    center: ['50%','45%'],
+                    radius : ['40%', '60%'],
+                    itemStyle : {
+                        normal : {
+                            label : {
+                                show : true,
+                                formatter:'{d}%'
+                            },
+                            labelLine : {
+                                show : true
+                            }
+                        }
+                    },  
+                    data:[
+                        {value:335, name:'直接访问'},
+                        {value:310, name:'邮件营销'},
+                        {value:234, name:'联盟广告'},
+                        {value:135, name:'视频广告'},
+                        {value:1548, name:'搜索引擎'},
+                        {value:1548, name:'搜索引擎2'},
+                        {value:1548, name:'搜索引擎3'},
+                        {value:1548, name:'搜索引擎4'}
+                    ]
+                }
+            ]
+        };                 
+        // 为echarts对象加载数据 
+        myChartDepartment.setOption(option); 
+    </script>
+</body>
+</html>

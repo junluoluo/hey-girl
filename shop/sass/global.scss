@@ -1,0 +1,111 @@
+﻿@charset "utf-8";
+//全局通配样式+清除默认样式
+html,body,h1,h2,h3,h4,h5,h6,div,dl,dt,dd,ul,ol,li,p,blockquote,pre,hr,figure,table,caption,th,td,form,fieldset,legend,input,button,textarea,menu{margin:0;padding:0;}
+header,footer,section,article,aside,nav,hgroup,address,figure,figcaption,menu,details{display:block;}
+table{border-collapse:collapse;border-spacing:0;width:100%;}
+caption{text-align:left;font-weight:normal;}
+html,body,fieldset,img,iframe,abbr{border:0;}
+i,cite,em,var,address,dfn,b{font-style:normal;font-weight: normal;}
+[hidefocus],summary{outline:0;}
+li{list-style:none;}
+h1,h2,h3,h4,h5,h6,small{font-size:100%;font-weight: normal;}
+sup,sub{font-size:83%;}
+pre,code,kbd,samp{font-family:inherit;}
+q:before,q:after{content:none;}
+textarea{overflow:auto;resize:none;}
+label,summary{cursor:default;display: inline-block;}
+a,button{cursor:pointer;}
+a{text-decoration: none !important;}
+del,ins,u,s,a,a:hover{text-decoration:none;}
+body,textarea,input,button,select,keygen,legend{font:12px/1.14 Microsoft Yahei,\5b8b\4f53;color:#333;outline:0;border:0}
+body{font-size:14px;height:100%;-webkit-font-smoothing:antialiased;-moz-font-smoothing:antialiased;font-family:"Microsoft Yahei","Hiragino Sans GB","Helvetica Neue",Helvetica,tahoma,arial,Verdana,sans-serif,"WenQuanYi Micro Hei","\5B8B\4F53";overflow-y: hidden;}//body设置
+.clearfloat:after{display:block;clear:both;content:"";visibility:hidden;height:0}
+.clearfloat{zoom:1}
+input[type=text]{-webkit-appearance: none;}
+
+.bg_gray{background:#f5f6f8;}
+.bg_blue{background:#f0f8ff;}
+
+//常用样式
+.none     {display: none;}
+.block    {display: block}
+.bk_left  {float: left}
+.bk_right {float: right;}
+.pointer  {cursor: pointer;}
+.bk_left_ie7{*float:left;}
+.bk_right_ie7{*float:right;}
+.b100     {width: 100%;}
+.b60     {width: 60%;}
+.box     {box-sizing: border-box;}
+
+//兼容ie7的行内块
+.in_blo{display:inline-block;*display:inline;zoom:1;}
+
+//溢出隐藏
+.o_hide{overflow:hidden;}
+
+//显示
+.f_show{ display: block;}
+
+//隐藏
+.f_hide{ display: none;}
+
+//占位的隐藏
+.v_hide{visibility:hidden;}
+
+//文本对齐
+.t_left{text-align:left}
+.t_right{text-align:right}
+.t_center{text-align:center}
+
+//相邻行内/行内块元素垂直对齐
+.v_m{vertical-align:middle;}
+.v_t{vertical-align:top;}
+.v_b{vertical-align:bottom;}
+
+//一行显示省略号 
+.ellipsis{overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+
+//文本加粗
+.bold{font-weight: bold;}
+
+//相对定位
+.relative{position:relative;}
+
+//宽度 循环0-1000
+@for $i from 0 through 1000 {
+  .w_#{$i}{width:1px * $i; }
+}
+
+//高度 循环0-100
+@for $i from 0 through 100 {
+  .h_#{$i}{height:1px * $i; }
+}
+
+//字号
+@for $i from 6 through 20 {
+  .size_#{2 * $i}{font-size:2px * $i; }
+}
+
+//margin,padding
+@for $i from 0 through 100 {
+  .m_l_#{$i} { margin-left:1px * $i; }
+  .p_l_#{$i} { padding-left:1px * $i; }
+}
+@for $i from 0 through 50 {
+  .m_t_#{$i} { margin-top:1px * $i; }
+  .p_t_#{$i} { padding-top:1px * $i; }
+}
+@for $i from 0 through 80 {
+  .m_r_#{$i} { margin-right:1px * $i; }
+  .p_r_#{$i} { padding-right:1px * $i; }
+}
+@for $i from 0 through 50 {
+  .m_b_#{$i} { margin-bottom:1px * $i; }
+  .p_b_#{$i} { padding-bottom:1px * $i; }
+}
+
+//圆角
+@for $i from 2 through 10 {
+  .r_#{$i}{border-radius:1px * $i;}
+}

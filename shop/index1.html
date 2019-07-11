@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>山东航空公司</title>
+<link type="text/css" rel="stylesheet" href="css/global.css">
+<link type="text/css" rel="stylesheet" href="css/style.css">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/face_common.js"></script>
+<script type="text/javascript" src="js/date/WdatePicker.js"></script>
+</head>
+<body class="bg_gray">
+<div id="main">
+	<div id="left">
+		<!--logo 部分-->
+		<div class="l_logo">
+			<a href="javascript:" class="v_middle"><img src="images/logo2.png" class="campany_logo" alt="山东航空公司" title="山东航空公司"></a>
+		</div>
+		<!--菜单列表 -->
+		<div class="l_list_b">
+            <div class="list_menu">
+           		<ul>
+           			<li class="active" onclick="hrefUrl('html/air_sale_analyse.html',this)">机票销售分析</li>
+           			<li onclick="hrefUrl('html/department_analyse.html',this)">部门分析</li>
+           			<li onclick="hrefUrl('html/air_save_analyse.html',this)">机票节省分析</li>
+           			<li onclick="hrefUrl('html/book_act_analyse.html',this)">预订及出行行为分析</li>
+           			<li onclick="hrefUrl('html/top_twenty_analyse.html',this)">前20员工飞行频次分析</li>
+           		</ul>
+            </div>
+        </div>
+	</div>
+	<!--顶部-->
+	<div id="header">
+		<div class="w_940 bk_left" id="headerTop1">
+			<select class="form_control form_select w_120 m_l_30">
+				<option>年度</option>
+				<option>1年度</option>
+				<option>2年度</option>
+			</select>
+			<select class="form_control form_select w_120 m_l_30">
+				<option>当前年</option>
+				<option>1</option>
+				<option>2</option>
+			</select>
+			
+			<input type="button" class="btn btn-primary m_l_30 w_98" value="查询">
+		</div>
+
+		<div class="w_940 bk_left none" id="headerTop2">
+			<span class="m_l_30">时间范围：</span>
+			<input type="text" class="form_control ic_date w_80" onfocus="WdatePicker({lang:'zh-cn',dateFmt:'yyyy-MM-dd',startDate:'%y-%M-%d',minDate:'#F{$dp.$D(\'enddate\',{M:-3})}',maxDate:'#F{$dp.$D(\'enddate\')}',onpicked:function(){$('#enddate').focus()}})" id="startdate" name="" value=""/>
+			<span>—</span>
+			<input type="text" class="form_control ic_date w_80" onfocus="WdatePicker({lang:'zh-cn',dateFmt:'yyyy-MM-dd',startDate:'%y-%M-%d',minDate:'#F{$dp.$D(\'startdate\')}',maxDate:'#F{$dp.$D(\'startdate\',{M:3})}'})" id="enddate" name="" value=""  />
+			
+			<input type="button" class="btn btn-primary m_l_20 w_98" value="查询">
+		</div>
+		<a href="" class="login_out">退出</a>
+	</div>
+	<!--内容-->
+	<div id="content">
+	    <iframe id="main_frame" name="main_frame" src="html/air_sale_analyse.html" width="100%" height="100%" frameborder="0"></iframe>
+	</div>
+</div>
+</body>
+</html>
